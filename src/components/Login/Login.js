@@ -1,10 +1,10 @@
-import { VStack, ButtonGroup, Button, Heading } from "@chakra-ui/react";
-import React from "react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { Button, ButtonGroup, Heading, VStack } from "@chakra-ui/react";
 import { Form, Formik } from "formik";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import TextField from "./TextField";
-import { useNavigate } from "react-router-dom";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const Login = () => {
   const navigate = useNavigate();

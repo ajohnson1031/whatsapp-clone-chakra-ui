@@ -1,7 +1,7 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Signup from "./Login/Signup";
+import { Route, Routes } from "react-router-dom";
 import Login from "./Login/Login";
+import Signup from "./Login/Signup";
 
 const Views = () => {
   return (
