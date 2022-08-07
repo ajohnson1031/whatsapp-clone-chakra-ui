@@ -9,7 +9,7 @@ import { Field, useField } from "formik";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 const TextField = ({ label, ...props }) => {
-  const { name, placeholder, autocomplete, type, toggleable } = props;
+  const { name, placeholder, autocomplete, type = "text", toggleable } = props;
   const [field, meta] = useField(props);
   const [isHiding, setIsHiding] = useState(true);
   const [fieldType, setFieldType] = useState(type);
