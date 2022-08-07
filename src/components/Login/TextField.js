@@ -1,29 +1,37 @@
-import { useState } from "react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
-  Input,
-  FormLabel,
   FormControl,
   FormErrorMessage,
+  FormLabel,
+  Input,
 } from "@chakra-ui/react";
 import { Field, useField } from "formik";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 
 const TextField = ({ label, ...props }) => {
-  const { name, placeholder, autocomplete, type = "text", toggleable } = props;
+  const { name, placeholder, autoComplete, type = "text", toggleable } = props;
   const [field, meta] = useField(props);
   const [isHiding, setIsHiding] = useState(true);
   const [fieldType, setFieldType] = useState(type);
-  const newProps = { name, placeholder, autocomplete, type: fieldType };
+  const newProps = { name, placeholder, autoComplete, type: fieldType };
 
   const handleToggle = () => {
     setFieldType(fieldType === "password" ? "text" : "password");
     setIsHiding(!isHiding);
   };
 
+  const viewIconProps = {
+    pos: "absolute",
+    zIndex: 2,
+    right: 2.5,
+    onClick: handleToggle,
+    color: "gray.500",
+  };
+
   const viewIcon = isHiding ? (
-    <ViewOffIcon pos="absolute" zIndex={2} right={2.5} onClick={handleToggle} />
+    <ViewOffIcon {...viewIconProps} />
   ) : (
-    <ViewIcon pos="absolute" zIndex={2} right={2.5} onClick={handleToggle} />
+    <ViewIcon {...viewIconProps} />
   );
 
   return (
