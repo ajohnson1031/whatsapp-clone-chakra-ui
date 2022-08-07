@@ -4,6 +4,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import TextField from "./TextField";
 import { useNavigate } from "react-router-dom";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,8 +22,8 @@ const Login = () => {
           .max(12, "Password must be between 6 and 12 characters"),
       })}
       onSubmit={(values, actions) => {
-        actions.alert(JSON.stringify(values, null, 2));
-        actions.resetForm();
+        alert(JSON.stringify(values, null, 2));
+        // actions.resetForm();
       }}
     >
       <VStack
@@ -36,22 +37,29 @@ const Login = () => {
         <Heading>Log In</Heading>
         <TextField
           name="username"
-          placeholder="Enter username"
+          placeholder="Enter username..."
           autoComplete="off"
           label="Username"
         />
 
         <TextField
           name="password"
-          placeholder="Enter password"
+          placeholder="Enter password..."
           autoComplete="off"
           label="Password"
+          type="password"
+          toggleable={true}
         />
         <ButtonGroup pt="1rem">
           <Button colorScheme="teal" type="submit">
             Log In
           </Button>
-          <Button onClick={() => navigate("/register")}>Create Account</Button>
+          <Button
+            onClick={() => navigate("/register")}
+            rightIcon={<ArrowForwardIcon />}
+          >
+            Register
+          </Button>
         </ButtonGroup>
       </VStack>
     </Formik>

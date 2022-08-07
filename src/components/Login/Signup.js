@@ -11,7 +11,7 @@ const SignUp = () => {
 
   return (
     <Formik
-      initialValues={{ username: "", password: "" }}
+      initialValues={{ username: "", password: "", confirmPassword: "" }}
       validationSchema={Yup.object({
         username: Yup.string()
           .required("Username required")
@@ -21,10 +21,15 @@ const SignUp = () => {
           .required("Password required")
           .min(6, "Password must be between 6 and 12 characters")
           .max(12, "Password must be between 6 and 12 characters"),
+        confirmPassword: Yup.string()
+          .required("Password confirmation field required")
+          .min(6, "Password must be between 6 and 12 characters")
+          .max(12, "Password must be between 6 and 12 characters")
+          .oneOf([Yup.ref("password"), null], "Password fields must match"),
       })}
       onSubmit={(values, actions) => {
-        actions.alert(JSON.stringify(values, null, 2));
-        actions.resetForm();
+        alert(JSON.stringify(values, null, 2));
+        // actions.resetForm();
       }}
     >
       <VStack
@@ -38,16 +43,27 @@ const SignUp = () => {
         <Heading>Sign Up</Heading>
         <TextField
           name="username"
-          placeholder="Enter username"
+          placeholder="Enter desired username..."
           autoComplete="off"
           label="Username"
         />
 
         <TextField
           name="password"
-          placeholder="Enter password"
+          placeholder="Enter password..."
           autoComplete="off"
           label="Password"
+          type="password"
+          toggleable={true}
+        />
+
+        <TextField
+          name="confirmPassword"
+          placeholder="Re-enter password..."
+          autoComplete="off"
+          label="Confirm Password"
+          type="password"
+          toggleable={true}
         />
         <ButtonGroup pt="1rem">
           <Button onClick={() => navigate("/")} leftIcon={<ArrowBackIcon />}>
