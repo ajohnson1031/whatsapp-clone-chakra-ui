@@ -1,5 +1,8 @@
+const { formSchema } = require("@whatsapp-clone-chakra-ui/common");
+
 const validateForm = (req, res) => {
   const formData = req.body;
+  console.log(formData);
   formSchema
     .validate(formData)
     .catch((err) => {

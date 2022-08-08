@@ -1,9 +1,9 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Button, ButtonGroup, Heading, VStack } from "@chakra-ui/react";
+import { formSchema } from "@whatsapp-clone-chakra-ui/common";
 import { Form, Formik } from "formik";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { formSchema } from "../../../common";
 import { http } from "../../services";
 import TextField from "./TextField";
 

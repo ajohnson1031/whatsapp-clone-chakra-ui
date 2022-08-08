@@ -42,7 +42,7 @@ npm manifest:
       "helmet": "^5.1.1",
       "nodemon": "^2.0.19",
       "socket.io": "^4.5.1",
-      "@whatsapp-clone-chakra-ui/common": "1.0.0"
+      "@whatsapp-clone-chakra-ui/common": "eval $(grep '^NODE_ENV' .env) && __COMMON_DIR__"
     }
   }
 
@@ -85,6 +85,11 @@ Lockfile:
     version "18.6.4"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-18.6.4.tgz#fd26723a8a3f8f46729812a7f9b4fc2d1608ed39"
     integrity sha512-I4BD3L+6AWiUobfxZ49DlU43gtI+FTHSv9pE2Zekg6KjMpre4ByusaljW3vYSLJrvQ1ck1hUaeVu8HVlY3vzHg==
+  
+  "@whatsapp-clone-chakra-ui/common@file:../common":
+    version "1.0.0"
+    dependencies:
+      yup "^0.32.11"
   
   abbrev@1:
     version "1.1.1"

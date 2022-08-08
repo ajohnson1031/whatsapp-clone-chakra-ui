@@ -1,4 +1,4 @@
-import { yup as Yup } from "yup";
+const Yup = require("yup");
 
 const formSchema = Yup.object({
   username: Yup.string()
